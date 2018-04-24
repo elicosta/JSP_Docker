@@ -4,7 +4,6 @@
     Author     : elicosta
 --%>
 
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.*"%>
 
@@ -44,7 +43,6 @@
             }
 
             private void selecionar() throws ClassNotFoundException, SQLException {
-                SimpleDateFormat fdt = new SimpleDateFormat("hh:mm:ss:SSSS");
                 conexao();
                 // Varrer todos os dados
                 Statement stm = con.createStatement();
@@ -54,16 +52,12 @@
                 String nome = null;
                 String email= null;
                 String foto= null;
-                System.out.println("Tempo Inicial: " + fdt.format(new java.util.Date()));
                 while (res.next()) {
                     nome = res.getString(1);
                     email = res.getString(2);
                     foto = res.getString(3);
                     x += 1;
                 }
-                System.out.println("Tempo Final: " + fdt.format(new java.util.Date()));
-                System.out.println("O último que li foi " + nome);
-                System.out.println("Total de " + x);
             }
         }
         %>
